@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feier Wang | Week 1 Reflection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif !important;
+            background-color: #f0e6ff;
+            color: #111111;
+        }
+
+        .lavender-card {
+            background-color: rgba(255, 255, 255, 0.85);
+            border: 1px solid #d8b4fe;
+            box-shadow: 0 10px 25px -5px rgba(147, 51, 234, 0.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between py-8 px-4">
+
+    <!-- Header Section -->
+    <header class="max-w-2xl mx-auto w-full text-center mb-10">
+        <h1 class="text-4xl font-bold tracking-tight text-black mb-2">Feier Wang's Blog</h1>
+        <p class="text-lg italic text-slate-700">Web Development Learning Journal</p>
+        <div class="w-16 h-0.5 bg-purple-400 mx-auto mt-4"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-2xl mx-auto w-full my-auto">
+        <article class="lavender-card rounded-2xl p-8 sm:p-10 transition-all duration-300 hover:shadow-2xl">
+            
+            <div class="flex items-center justify-between pb-6 mb-6 border-b border-purple-200">
+                <div>
+                    <h2 class="text-2xl font-bold text-black">Week 1 Reflection</h2>
+                    <p class="text-sm text-slate-700 mt-1">Author: <span class="font-bold text-black">Feier Wang</span></p>
+                </div>
+                <span class="text-sm px-3 py-1 rounded-full bg-purple-100 text-purple-900 border border-purple-200">
+                    Week 01
+                </span>
+            </div>
+
+            <!-- Reflection Quote -->
+            <div class="my-6 pl-6 border-l-4 border-purple-600">
+                <blockquote class="text-xl sm:text-2xl text-black leading-relaxed italic">
+                    "The week1 reflection: Its my first time to build my own website it seems a little difficult but i think i can do better after trying and exercising"
+                </blockquote>
+            </div>
+
+            <!-- Interactive Actions -->
+            <div class="mt-8 pt-6 border-t border-purple-200 flex items-center justify-between text-sm">
+                <button id="likeBtn" class="flex items-center gap-2 hover:text-purple-700 transition-colors py-1 px-3 rounded-lg border border-purple-200 bg-purple-50">
+                    <i id="likeIcon" class="fa-regular fa-heart text-purple-600"></i>
+                    <span id="likeCount" class="font-bold text-black">12</span> Likes
+                </button>
+                <button onclick="copyReflection()" class="flex items-center gap-2 hover:text-purple-700 transition-colors py-1 px-3 rounded-lg border border-purple-200 bg-purple-50">
+                    <i class="fa-regular fa-copy text-purple-600"></i> Copy Text
+                </button>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-2xl mx-auto w-full text-center mt-12 text-sm text-slate-700 border-t border-purple-200 pt-6">
+        <p>&copy; 2026 Feier Wang. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const likeBtn = document.getElementById('likeBtn');
+        const likeIcon = document.getElementById('likeIcon');
+        const likeCount = document.getElementById('likeCount');
+        let liked = false;
+
+        likeBtn.addEventListener('click', () => {
+            let count = parseInt(likeCount.innerText);
+            if (!liked) {
+                likeIcon.classList.replace('fa-regular', 'fa-solid');
+                likeIcon.classList.add('text-red-500');
+                likeCount.innerText = count + 1;
+                liked = true;
+            } else {
+                likeIcon.classList.replace('fa-solid', 'fa-regular');
+                likeIcon.classList.remove('text-red-500');
+                likeCount.innerText = count - 1;
+                liked = false;
+            }
+        });
+
+        function copyReflection() {
+            const textToCopy = "The week1 reflection: Its my first time to build my own website it seems a little difficult but i think i can do better after trying and practice";
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            alert('Reflection copied to clipboard!');
+        }
+    </script>
+</body>
+</html>
