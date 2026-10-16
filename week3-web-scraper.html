@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eef2f6">
+  <title>Week 3: Web Scraper Reflection | Feier Wang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#152238; --muted:#53657c; --blue:#0879d1; --cyan:#00b9c8; --line:#d8e1eb; --panel:rgba(255,255,255,.88); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); font-family:Manrope,system-ui,sans-serif; background:radial-gradient(ellipse at 88% 5%,rgba(0,185,200,.13),transparent 30rem),radial-gradient(ellipse at 8% 35%,rgba(8,121,209,.10),transparent 34rem),linear-gradient(145deg,#f7f9fc,#e9eef4); min-height:100vh; }
+    a { color:var(--blue); }
+    .wrap { width:min(1040px,calc(100% - 36px)); margin:auto; }
+    header { padding:25px 0; border-bottom:1px solid rgba(152,171,192,.35); }
+    .top { display:flex; align-items:center; justify-content:space-between; gap:18px; }
+    .brand { font-weight:800; letter-spacing:-.04em; text-decoration:none; color:var(--ink); }
+    .back { font-size:.9rem; font-weight:700; text-decoration:none; }
+    .hero { padding:74px 0 42px; }
+    .eyebrow,.mono { font:500 .78rem 'DM Mono',monospace; letter-spacing:.12em; text-transform:uppercase; color:var(--blue); }
+    h1 { font-size:clamp(2.5rem,7vw,5.1rem); line-height:.99; letter-spacing:-.065em; margin:18px 0; max-width:850px; }
+    h1 span { color:var(--blue); }
+    .lead { color:var(--muted); font-size:1.12rem; line-height:1.8; max-width:690px; }
+    .meta { display:flex; flex-wrap:wrap; gap:10px; margin-top:26px; }
+    .tag { padding:8px 12px; border:1px solid var(--line); border-radius:99px; background:#ffffffb8; color:#30445d; font:500 .78rem 'DM Mono',monospace; }
+    main { padding-bottom:70px; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+    .card { background:var(--panel); border:1px solid #dce4ed; border-radius:20px; padding:26px; box-shadow:0 18px 45px rgba(31,55,82,.07); }
+    .wide { grid-column:1/-1; }
+    h2 { font-size:1.35rem; letter-spacing:-.035em; margin:0 0 14px; }
+    h3 { margin:0 0 9px; font-size:1rem; }
+    p { color:var(--muted); line-height:1.78; margin:0 0 12px; }
+    ul { padding-left:19px; margin:8px 0 0; color:var(--muted); line-height:1.9; }
+    .collections { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:17px; }
+    .collection { border:1px solid var(--line); border-radius:14px; padding:16px; background:linear-gradient(145deg,#fff,#f7fafc); min-width:0; }
+    .collection h3 { color:#17395b; }
+    .collection p { font-size:.88rem; margin:0 0 8px; }
+    .titles { color:#3f5872; font-size:.84rem; line-height:1.65; }
+    .callout { border-left:3px solid var(--cyan); padding:2px 0 2px 16px; }
+    .steps { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:16px; }
+    .step { padding:10px 12px; border-radius:10px; background:#eef7fb; color:#174568; font:500 .8rem 'DM Mono',monospace; }
+    .arrow { color:#70a0bd; }
+    .button { display:inline-flex; padding:11px 15px; border-radius:11px; background:#0879d1; color:white; text-decoration:none; font-weight:700; margin:6px 8px 0 0; box-shadow:0 8px 20px #0879d12b; }
+    .button.secondary { color:#155176; background:#eaf5fa; border:1px solid #cfe7f2; box-shadow:none; }
+    footer { border-top:1px solid var(--line); padding:23px 0 36px; color:var(--muted); font-size:.85rem; }
+    @media(max-width:720px) { .grid { grid-template-columns:1fr; } .wide { grid-column:auto; } .collections { grid-template-columns:1fr 1fr; } .hero { padding-top:52px; } }
+    @media(max-width:460px) { .collections { grid-template-columns:1fr; } .card { padding:21px; } }
+  </style>
+</head>
+<body>
+  <header><div class="wrap top"><a class="brand" href="index.html">FEIER WANG <span class="mono">/ LEARNING JOURNAL</span></a><a class="back" href="index.html">← Back to home</a></div></header>
+  <section class="wrap hero">
+    <div class="eyebrow">Week 03 / Digital Methods</div>
+    <h1>Web scraping<br><span>reflection.</span></h1>
+    <p class="lead">A small, practical exploration of how a scraper can turn a streaming platform’s homepage into structured data — and what that dataset can and cannot tell us.</p>
+    <div class="meta"><span class="tag">TARGET · CHANNEL 4</span><span class="tag">METHOD · WEB SCRAPER</span><span class="tag">CAPTURE · 16 OCT 2026</span></div>
+  </section>
+  <main class="wrap grid">
+    <section class="card">
+      <div class="mono">01 / The question</div><h2>What does the homepage make visible?</h2>
+      <p>I used Web Scraper to collect programme titles and related text from the Channel 4 homepage. I wanted to see how the page groups programmes and how a visual browsing experience can be represented as rows and fields.</p>
+      <p>The homepage is not a neutral catalogue. Its collections organise programmes into editorial sections, so the categories themselves are part of what the scrape captures.</p>
+    </section>
+    <section class="card">
+      <div class="mono">02 / The process</div><h2>From page to dataset</h2>
+      <p>I configured a sitemap in the Web Scraper browser extension and selected collection names, programme titles, descriptive text and image URLs.</p>
+      <div class="steps"><span class="step">CHANNEL4.COM</span><span class="arrow">→</span><span class="step">SELECT ELEMENTS</span><span class="arrow">→</span><span class="step">CSV EXPORT</span></div>
+      <p style="margin-top:16px">The exported CSV contains <strong>6 collection records</strong>. Each record has repeated fields for programme titles and image links, with descriptive text captured for some items.</p>
+    </section>
+    <section class="card wide">
+      <div class="mono">03 / A sample of the data</div><h2>Six homepage collections</h2>
+      <p>These examples are taken from the exported CSV. The title lists below show the first five title fields in each collection record.</p>
+      <div class="collections">
+        <article class="collection"><h3>Comedy Feast</h3><p>“All-you-can-eat comedy! Get stuck in.”</p><div class="titles">Break Clause · Taskmaster · The Simpsons · The Good Place · The Inbetweeners</div></article>
+        <article class="collection"><h3>Lifestyle &amp; Entertainment</h3><p>“Relax and unwind with some familiar favourites.”</p><div class="titles">Gogglebox · Tempting Fortune · Location, Location, Location · Apocalypse · Emma Willis: Delivering…</div></article>
+        <article class="collection"><h3>Documentaries</h3><p>“Get your factual fix with these must-watch documentaries.”</p><div class="titles">Killing Anna · The Jury: Murder Trial · Love You to Death · England ‘Til I Die · The Accused</div></article>
+        <article class="collection"><h3>Walter Presents: World Drama</h3><p>International drama collection.</p><div class="titles">Soviet Jeans · Until the Last Heartbeat · 3PU: Paris Police Psychiatric… · Prison Island · Coastal Unit</div></article>
+        <article class="collection"><h3>Best of the US</h3><p>US drama and comedy titles.</p><div class="titles">ER · Brooklyn Nine-Nine · Fellow Travelers · Frasier · This Is Us</div></article>
+        <article class="collection"><h3>Drama from U</h3><p>Drama collection on Channel 4.</p><div class="titles">The Marlow Murder Club · The Brokenwood Mysteries · Signora Volpe · Elementary · Bergerac</div></article>
+      </div>
+    </section>
+    <section class="card">
+      <div class="mono">04 / What I learned</div><h2>Structure is useful — and incomplete</h2>
+      <p>The scrape made it easier to compare categories and titles across the page. A structured dataset can help answer questions such as which kinds of collections appear on a homepage, or which titles sit together.</p>
+      <p>But it records what my selectors could identify at one moment. It does not explain why a programme was promoted, how users interpret the page, or how recommendations differ between people.</p>
+    </section>
+    <section class="card">
+      <div class="mono">05 / Limits &amp; next steps</div><h2>A snapshot, not the whole platform</h2>
+      <ul>
+        <li>The export is a snapshot of the homepage on 16 October 2026; page content can change.</li>
+        <li>Repeated fields make the CSV wide, and some text is visibly shortened with ellipses.</li>
+        <li>Selectors may miss content loaded later, hidden below the fold, or presented differently on another device.</li>
+        <li>Image links and titles do not reveal audience behaviour, personalisation, or the editorial decisions behind placement.</li>
+      </ul>
+      <p style="margin-top:14px">Next, I would check the page manually against the export, document the selector choices, and compare repeated captures before making claims about visibility or promotion.</p>
+    </section>
+    <section class="card wide">
+      <div class="mono">Explore</div><h2>Sources &amp; tools</h2>
+      <a class="button" href="https://www.channel4.com/" target="_blank" rel="noopener noreferrer">Open Channel 4 ↗</a>
+      <a class="button secondary" href="https://webscraper.io/" target="_blank" rel="noopener noreferrer">Web Scraper ↗</a>
+    </section>
+  </main>
+  <footer><div class="wrap">© 2026 Feier Wang · Week 3 learning journal</div></footer>
+</body>
+</html>
