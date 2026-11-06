@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f0e6ff">
+  <title>Week 5 reflection | Feier Wang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#171322; --muted:#625b70; --purple:#7c3aed; --line:#e5d8f7; --panel:rgba(255,255,255,.88); }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; color:var(--ink); font-family:Manrope,system-ui,sans-serif; background:radial-gradient(ellipse at 88% 5%,rgba(168,130,255,.16),transparent 30rem),linear-gradient(145deg,#fbf9ff,#f0e6ff); }
+    a { color:var(--purple); }
+    .wrap { width:min(900px,calc(100% - 36px)); margin:auto; }
+    header { padding:25px 0; border-bottom:1px solid rgba(173,145,205,.35); }
+    .top { display:flex; align-items:center; justify-content:space-between; gap:18px; }
+    .brand { font-weight:800; letter-spacing:-.04em; text-decoration:none; color:var(--ink); }
+    .back { font-size:.9rem; font-weight:700; text-decoration:none; }
+    .hero { padding:76px 0 40px; }
+    .eyebrow,.mono { font:500 .78rem 'DM Mono',monospace; letter-spacing:.12em; text-transform:uppercase; color:var(--purple); }
+    h1 { font-size:clamp(2.8rem,8vw,5.3rem); line-height:1; letter-spacing:-.065em; margin:18px 0; }
+    .lead { color:var(--muted); font-size:clamp(1.1rem,2.8vw,1.35rem); line-height:1.7; max-width:720px; margin:0; }
+    main { padding-bottom:72px; }
+    .card { background:var(--panel); border:1px solid var(--line); border-radius:22px; padding:clamp(24px,5vw,42px); box-shadow:0 18px 45px rgba(67,42,98,.08); }
+    h2 { font-size:1.35rem; letter-spacing:-.035em; margin:10px 0 14px; }
+    p { color:var(--muted); line-height:1.8; margin:0 0 15px; }
+    footer { border-top:1px solid var(--line); padding:23px 0 36px; color:var(--muted); font-size:.85rem; }
+    @media(max-width:500px) { .hero { padding-top:54px; } .top { align-items:flex-start; flex-direction:column; gap:8px; } }
+  </style>
+</head>
+<body>
+  <header><div class="wrap top"><a class="brand" href="index.html">FEIER WANG <span class="mono">/ LEARNING JOURNAL</span></a><a class="back" href="index.html">← Back to home</a></div></header>
+  <section class="wrap hero">
+    <div class="eyebrow">Week 05 / Reflection</div>
+    <h1>Week5 reflection</h1>
+    <p class="lead">A reflection on our research process and the challenges of working with data from multiple reports.</p>
+  </section>
+  <main class="wrap">
+    <section class="card">
+      <div class="mono">The reflection</div>
+      <h2>Process &amp; challenges</h2>
+      <p>We examined how British university students use AI for their assignments, categorising the findings into several themes, including AI tools, patterns of use, benefits and risks, and emotional impacts.</p>
+      <p>One of the most challenging parts was translating the data into a shared framework. Each report used different definitions and variable names, so we had to manually reclassify and summarise the findings, which was time-consuming. For data that were difficult to scrape, we adapted our approach and provided a more general summary.</p>
+    </section>
+  </main>
+  <footer><div class="wrap">© 2026 Feier Wang · Week 5 learning journal</div></footer>
+</body>
+</html>
